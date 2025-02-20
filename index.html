@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>meuprimeirocrud</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+<div class="container">
+<div class="header">
+    <span>Cadastro de Funcionarios</span>
+    <button onclick="openmodal()" id="new">Incluir</i><button>
+    </div>
+
+    <div class="divTable">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Função</th>
+                    <th>Hierarquia</th>
+                    <th>Salarío</th>
+                    <th class="acao">Editar</th>
+                    <th class="acao">Excluir</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+           <table>
+           </div>
+
+<div class="modal-container">
+<div class="modal">
+<form>
+    <label for="m-nome">Nome</label>
+    <input id="m-nome" type="text" required/>
+
+    <label for="m-funcao">Função</label>
+    <input for="m-funcao" type="text" required/>
+
+    <label for="m-hierarquia">Hierarquia</label>
+    <input for="m-hierarquia" type="text" required/>
+
+    <label for="m-salario">Salarío</label>
+    <input for="m-salario" type="text" required/>
+    <button id="botaoSalvar">Salvar</button>
+</form>
+</div>
+</div>
+
+   <script src="script.js"></script>
+</body>
+</html>
