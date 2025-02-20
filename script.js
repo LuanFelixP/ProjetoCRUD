@@ -9,8 +9,8 @@ const botaoSalvar = document.querySelector('#botaoSalvar')
 let itens
 let id
 
-const getItensBD = () =>JSON.parse(localStorage.getItem('dbfunc')) ?? [] 
-const setItensBD = () =>localStorage.setItem('dbfunc' , JSON.stringify(itens))
+const getItensBD = () => JSON.parse(localStorage.getItem('dbfunc')) ?? [] 
+const setItensBD = () => localStorage.setItem('dbfunc', JSON.stringify(itens))
 
 function loaditens() {
     itens = getItensBD()
@@ -19,7 +19,6 @@ function loaditens() {
         insertItem(item, index)
     })
 }
-
 
 loaditens()
 
@@ -59,7 +58,6 @@ function openModal(edit = false, index = 0) {
     modal.onclick = e => {
         if (e.target.className.indexOf('modal-container') -1){
             modal.classList.remove('active')
-
         }
     }
 
@@ -100,5 +98,4 @@ setItensBD()
 modal.classList.remove('active')
 loaditens()
 id = undefined
-
 }
