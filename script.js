@@ -26,12 +26,12 @@ function insertItem(item, index) {
     let tr = document.createElement('tr')
 
     tr.innerHTML = `
-    <td>${item.snome}</td>
-    <td>${item.sfuncao}</td>
-    <td>${item.shierarquia}</td>
-    <td>R$ ${item.sSalario}</td>
+    <td>${item.nome}</td>
+    <td>${item.funcao}</td>
+    <td>${item.hierarquia}</td>
+    <td>R$ ${item.salario}</td>
     <td class="acao">
-    <button onclick="deleteItem(${index})"><i class='bx-edit' ></i></button>
+    <button onclick="editItem(${index})"><i class='bx-edit' ></i></button>
     </td>
 
     <td class="acao">
@@ -42,21 +42,20 @@ function insertItem(item, index) {
 }
 
 function editItem(index) {
-
     openModal(true, index)
 }
 
 function deleteItem(index) {
     itens.splice(index, 1)
     setItensBD()
-    loadItens()
+    loaditens()
 }
 
 function openModal(edit = false, index = 0) {
-    modal.classList.remove('active')
+    modal.classList.add('active')
 
     modal.onclick = e => {
-        if (e.target.className.indexOf('modal-container') -1){
+        if (e.target.className.indexOf('modal-container') !== -1) {
             modal.classList.remove('active')
         }
     }
@@ -75,27 +74,23 @@ function openModal(edit = false, index = 0) {
     }
 }
 
-
 botaoSalvar.onclick = e => {
-
-    if (snome.value == '' || sfuncao.value == '' || shierarquia.value == '' || sSalario == '')
+    if (snome.value == '' || sfuncao.value == '' || shierarquia.value == '' || sSalario.value == '')
         return
-}
 
-e.preventDesfault();
+    e.preventDefault()
 
-if (id !== undefined) {
-    itens[id].nome = snome.value
-    itens[id].funcao = sfuncao.value
-    itens[id].hierarquia = shierarquia.value
-    itens[id].salario = sSalario.value
-} else {
-    itens.push({'nome' : snome.value, 'funcao' : sfuncao.value, 'hierarquia' : shierarquia.value, 'salario' : sSalario.value })
+    if (id !== undefined) {
+        itens[id].nome = snome.value
+        itens[id].funcao = sfuncao.value
+        itens[id].hierarquia = shierarquia.value
+        itens[id].salario = sSalario.value
+    } else {
+        itens.push({'nome': snome.value, 'funcao': sfuncao.value, 'hierarquia': shierarquia.value, 'salario': sSalario.value})
+    }
 
-
-setItensBD()
-
-modal.classList.remove('active')
-loaditens()
-id = undefined
+    setItensBD()
+    modal.classList.remove('active')
+    loaditens()
+    id = undefined
 }
