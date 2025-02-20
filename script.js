@@ -4,7 +4,7 @@ const snome = document.querySelector('#m-nome')
 const sfuncao = document.querySelector('#m-funcao')
 const shierarquia = document.querySelector('#m-hierarquia')
 const sSalario = document.querySelector('#m-salario')
-const botaoSalvar = document.querySelector('botaoSalvar')
+const botaoSalvar = document.querySelector('#botaoSalvar')
 
 let itens
 let id
